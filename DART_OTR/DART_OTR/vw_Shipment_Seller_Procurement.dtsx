@@ -1,0 +1,957 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/13/2023 12:59:55 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ENCLTH301"
+  DTS:CreatorName="CORP\SAareVeeraragavalu"
+  DTS:DTSID="{8F639B7A-3275-4ED2-AB3F-A8C5274CB510}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="vw_Shipment_Seller_Procurement"
+  DTS:PackageType="5"
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{13FE1DBE-FA2A-4F9E-963C-7A0AC22E5689}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load vwShipmentSellerProcurement"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3A99C9CB-5FF0-4B6E-8D87-D66EFEC7EEE5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load vwShipmentSellerProcurement"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load vwShipmentSellerProcurement\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load vwShipmentSellerProcurement\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load vwShipmentSellerProcurement\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load vwShipmentSellerProcurement\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Derived Column.Outputs[Derived Column Output].Columns[dss_record_source]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Derived Column.Outputs[Derived Column Output].Columns[dss_record_source]"
+                      name="dss_record_source"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)@[$Project::RecordSource] + "_" + @[$Project::DestinationDB] + "." + "inc.vw_Shipment_Seller_Procurement"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)@[$Project::RecordSource] + "_" + @[$Project::DestinationDB] + "." + "inc.vw_Shipment_Seller_Procurement"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Derived Column.Outputs[Derived Column Output].Columns[dss_load_date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Derived Column.Outputs[Derived Column Output].Columns[dss_load_date]"
+                      name="dss_load_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DATE)[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DATE)GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load vwShipmentSellerProcurement\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load vwShipmentSellerProcurement\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load vwShipmentSellerProcurement"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[load_DART_vwShipmentSellerProcurement]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Connections[OleDbConnection]"
+                  connectionManagerID="{1D6B700D-5F98-41C3-92A6-F753F0AB307D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[vs-dev-edw01 its local POC_ITS_EDW_Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].Columns[shipmentid]"
+                      cachedDataType="i4"
+                      cachedName="shipmentid"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[shipmentid]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[shipmentid]" />
+                    <inputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].Columns[SellerAljexId]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="SellerAljexId"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[selleraljexid]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[SellerAljexId]" />
+                    <inputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].Columns[SellerEmployeeID]"
+                      cachedDataType="i4"
+                      cachedName="SellerEmployeeID"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[selleremployeeid]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[SellerEmployeeID]" />
+                    <inputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].Columns[SellerEmployeeName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="82"
+                      cachedName="SellerEmployeeName"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[selleremployeename]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[SellerEmployeeName]" />
+                    <inputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].Columns[SellerEmployeeStartDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SellerEmployeeStartDate"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[selleremployeestartdate]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[SellerEmployeeStartDate]" />
+                    <inputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].Columns[SellerEmployeeTermDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SellerEmployeeTermDate"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[selleremployeetermdate]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[SellerEmployeeTermDate]" />
+                    <inputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].Columns[SellerEmloyeeStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="SellerEmloyeeStatus"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[selleremloyeestatus]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[SellerEmloyeeStatus]" />
+                    <inputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].Columns[ProcurementAljexId]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="ProcurementAljexId"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[procurementaljexid]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[ProcurementAljexId]" />
+                    <inputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].Columns[ProcurementEmployeeID]"
+                      cachedDataType="i4"
+                      cachedName="ProcurementEmployeeID"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[procurementemployeeid]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[ProcurementEmployeeID]" />
+                    <inputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].Columns[ProcurementName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="ProcurementName"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[procurementname]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[ProcurementName]" />
+                    <inputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].Columns[ProcurementStartDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ProcurementStartDate"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[procurementstartdate]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[ProcurementStartDate]" />
+                    <inputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].Columns[ProcurementTermDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ProcurementTermDate"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[procurementtermdate]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[ProcurementTermDate]" />
+                    <inputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].Columns[ProcurementStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ProcurementStatus"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[procurementstatus]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[ProcurementStatus]" />
+                    <inputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].Columns[dss_record_source]"
+                      cachedDataType="wstr"
+                      cachedLength="89"
+                      cachedName="dss_record_source"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[dss_record_source]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Derived Column.Outputs[Derived Column Output].Columns[dss_record_source]" />
+                    <inputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].Columns[dss_load_date]"
+                      cachedDataType="date"
+                      cachedName="dss_load_date"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[dss_load_date]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Derived Column.Outputs[Derived Column Output].Columns[dss_load_date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[shipmentid]"
+                      dataType="i4"
+                      name="shipmentid" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[selleraljexid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="selleraljexid" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[selleremployeeid]"
+                      dataType="i4"
+                      name="selleremployeeid" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[selleremployeename]"
+                      codePage="1252"
+                      dataType="str"
+                      length="82"
+                      name="selleremployeename" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[selleremployeestartdate]"
+                      dataType="dbTimeStamp"
+                      name="selleremployeestartdate" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[selleremployeetermdate]"
+                      dataType="dbTimeStamp"
+                      name="selleremployeetermdate" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[selleremloyeestatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="selleremloyeestatus" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[procurementaljexid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="procurementaljexid" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[procurementemployeeid]"
+                      dataType="i4"
+                      name="procurementemployeeid" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[procurementname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="procurementname" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[procurementstartdate]"
+                      dataType="dbTimeStamp"
+                      name="procurementstartdate" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[procurementtermdate]"
+                      dataType="dbTimeStamp"
+                      name="procurementtermdate" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[procurementstatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="procurementstatus" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[dss_record_source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="dss_record_source" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input].ExternalColumns[dss_load_date]"
+                      dataType="dbTimeStamp"
+                      name="dss_load_date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source vwShipmentSellerProcurement"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select shipmentid
+,SellerAljexId
+,SellerEmployeeID
+, CONVERT(varchar(82),SellerEmployeeName) AS SellerEmployeeName
+,SellerEmployeeStartDate
+,SellerEmployeeTermDate
+,CONVERT(varchar(8),SellerEmloyeeStatus) AS SellerEmloyeeStatus
+,ProcurementAljexId
+,ProcurementEmployeeID
+,ProcurementName
+,ProcurementStartDate
+,ProcurementTermDate
+,ProcurementStatus
+From inc.vw_Shipment_Seller_Procurement with(nolock)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Connections[OleDbConnection]"
+                  connectionManagerID="{586A2015-9B26-4F68-AC48-D9FE503F7CCC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[brokerage database windows net ODS saareveeraragavalu@its4logistics com]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[shipmentid]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[shipmentid]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[shipmentid]"
+                      name="shipmentid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[SellerAljexId]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[SellerAljexId]"
+                      length="20"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[SellerAljexId]"
+                      name="SellerAljexId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[SellerEmployeeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[SellerEmployeeID]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[SellerEmployeeID]"
+                      name="SellerEmployeeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[SellerEmployeeName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[SellerEmployeeName]"
+                      length="82"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[SellerEmployeeName]"
+                      name="SellerEmployeeName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[SellerEmployeeStartDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[SellerEmployeeStartDate]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[SellerEmployeeStartDate]"
+                      name="SellerEmployeeStartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[SellerEmployeeTermDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[SellerEmployeeTermDate]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[SellerEmployeeTermDate]"
+                      name="SellerEmployeeTermDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[SellerEmloyeeStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[SellerEmloyeeStatus]"
+                      length="8"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[SellerEmloyeeStatus]"
+                      name="SellerEmloyeeStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[ProcurementAljexId]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[ProcurementAljexId]"
+                      length="100"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[ProcurementAljexId]"
+                      name="ProcurementAljexId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[ProcurementEmployeeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[ProcurementEmployeeID]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[ProcurementEmployeeID]"
+                      name="ProcurementEmployeeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[ProcurementName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[ProcurementName]"
+                      length="100"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[ProcurementName]"
+                      name="ProcurementName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[ProcurementStartDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[ProcurementStartDate]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[ProcurementStartDate]"
+                      name="ProcurementStartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[ProcurementTermDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[ProcurementTermDate]"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[ProcurementTermDate]"
+                      name="ProcurementTermDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[ProcurementStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[ProcurementStatus]"
+                      length="50"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].Columns[ProcurementStatus]"
+                      name="ProcurementStatus"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[shipmentid]"
+                      dataType="i4"
+                      name="shipmentid" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[SellerAljexId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="SellerAljexId" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[SellerEmployeeID]"
+                      dataType="i4"
+                      name="SellerEmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[SellerEmployeeName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="82"
+                      name="SellerEmployeeName" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[SellerEmployeeStartDate]"
+                      dataType="dbTimeStamp"
+                      name="SellerEmployeeStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[SellerEmployeeTermDate]"
+                      dataType="dbTimeStamp"
+                      name="SellerEmployeeTermDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[SellerEmloyeeStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="SellerEmloyeeStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[ProcurementAljexId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="ProcurementAljexId" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[ProcurementEmployeeID]"
+                      dataType="i4"
+                      name="ProcurementEmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[ProcurementName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="ProcurementName" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[ProcurementStartDate]"
+                      dataType="dbTimeStamp"
+                      name="ProcurementStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[ProcurementTermDate]"
+                      dataType="dbTimeStamp"
+                      name="ProcurementTermDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output].ExternalColumns[ProcurementStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ProcurementStatus" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[shipmentid]"
+                      dataType="i4"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[shipmentid]"
+                      name="shipmentid" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[SellerAljexId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[SellerAljexId]"
+                      name="SellerAljexId" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[SellerEmployeeID]"
+                      dataType="i4"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[SellerEmployeeID]"
+                      name="SellerEmployeeID" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[SellerEmployeeName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="82"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[SellerEmployeeName]"
+                      name="SellerEmployeeName" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[SellerEmployeeStartDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[SellerEmployeeStartDate]"
+                      name="SellerEmployeeStartDate" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[SellerEmployeeTermDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[SellerEmployeeTermDate]"
+                      name="SellerEmployeeTermDate" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[SellerEmloyeeStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[SellerEmloyeeStatus]"
+                      name="SellerEmloyeeStatus" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[ProcurementAljexId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[ProcurementAljexId]"
+                      name="ProcurementAljexId" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[ProcurementEmployeeID]"
+                      dataType="i4"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[ProcurementEmployeeID]"
+                      name="ProcurementEmployeeID" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[ProcurementName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[ProcurementName]"
+                      name="ProcurementName" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[ProcurementStartDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[ProcurementStartDate]"
+                      name="ProcurementStartDate" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[ProcurementTermDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[ProcurementTermDate]"
+                      name="ProcurementTermDate" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[ProcurementStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[ProcurementStatus]"
+                      name="ProcurementStatus" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load vwShipmentSellerProcurement.Paths[Derived Column Output]"
+              endId="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Load vwShipmentSellerProcurement\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load vwShipmentSellerProcurement.Paths[OLE DB Source Output]"
+              endId="Package\Load vwShipmentSellerProcurement\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate DART_vwShipmentSellerProcurement"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{EDC28030-774F-4C58-AB37-865FF141C5CF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate DART_vwShipmentSellerProcurement"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1D6B700D-5F98-41C3-92A6-F753F0AB307D}"
+          SQLTask:SqlStatementSource="Truncate Table dbo.load_DART_vwShipmentSellerProcurement" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{2DB78CC6-51D3-41C7-AF58-1EEAFE6C2402}"
+      DTS:From="Package\Truncate DART_vwShipmentSellerProcurement"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load vwShipmentSellerProcurement" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="248,42"
+          Id="Package\Load vwShipmentSellerProcurement"
+          TopLeft="250.545454545455,176.909090909091" />
+        <NodeLayout
+          Size="304,42"
+          Id="Package\Truncate DART_vwShipmentSellerProcurement"
+          TopLeft="227.545454545455,84.9090909090909" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="377.045454545455,126.909090909091">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.0000000000001"
+              Start="0,0"
+              End="0,42.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load vwShipmentSellerProcurement">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement"
+          TopLeft="186,59" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Load vwShipmentSellerProcurement\Derived Column"
+          TopLeft="242,147" />
+        <NodeLayout
+          Size="248,42"
+          Id="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement"
+          TopLeft="195,247" />
+        <EdgeLayout
+          Id="Package\Load vwShipmentSellerProcurement.Paths[OLE DB Source Output]"
+          TopLeft="317,101">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load vwShipmentSellerProcurement.Paths[Derived Column Output]"
+          TopLeft="319,189">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load vwShipmentSellerProcurement\Source vwShipmentSellerProcurement">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load vwShipmentSellerProcurement\Load vwShipmentSellerProcurement">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
