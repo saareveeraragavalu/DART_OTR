@@ -11,16 +11,16 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="load_DART_financial"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{83FF951E-927B-4065-8B2B-15F5735B8A11}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{62CF4C16-83E8-4ADC-8476-119C3F5FE933}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Source:EDWDataETL@its4logistics.com]"
+      DTS:refId="Package.ConnectionManagers[Source.EDWDataETL@its4logistics.com]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{ACEB6AEE-C4AC-4E01-A1F8-916826245111}"
-      DTS:ObjectName="Source:EDWDataETL@its4logistics.com">
+      DTS:ObjectName="Source.EDWDataETL@its4logistics.com">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
@@ -29,15 +29,15 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAs+CaDgKUMEKoW2GdjPUfVQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA27SAzli5rdwyI/A6/6EshAAAAAASAAACgAAAAEAAAAMtKzhd4R/1SEelBGhqvNm8gAAAAIszPnI5gqHqu8TsOwu5hiTmTRNSy1TharpSYNJka4w0UAAAAqAWHLI4nQ3ap9HHxFS+wtaRUTQ8</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAs+CaDgKUMEKoW2GdjPUfVQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD9/Bh5akfO9WyCvDNK6t9mAAAAAASAAACgAAAAEAAAANuN8fQ/QeMogYE4yH2/TlcgAAAAIsqVMtUK5zTfL5RvvzHonluIrkmpGR7U4ZYOk3+B9D4UAAAAI7qpog1RPc5GA3HOj9b5c8gVmKY</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging]"
+      DTS:refId="Package.ConnectionManagers[Target.vs-dev-edw01.its.local.POC_ITS_EDW_Staging]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{6FFB1649-1C86-469D-BC12-7453AEE11721}"
-      DTS:ObjectName="Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging">
+      DTS:ObjectName="Target.vs-dev-edw01.its.local.POC_ITS_EDW_Staging">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
@@ -218,8 +218,8 @@
               <connections>
                 <connection
                   refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging]"
-                  connectionManagerRefId="Package.ConnectionManagers[Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging]"
+                  connectionManagerID="Package.ConnectionManagers[Target.vs-dev-edw01.its.local.POC_ITS_EDW_Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[Target.vs-dev-edw01.its.local.POC_ITS_EDW_Staging]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -541,8 +541,8 @@ FROM TMS.FINANCIAL WITH (NOLOCK) WHERE NULLIF(code, '') is NOT NULL;</property>
               <connections>
                 <connection
                   refId="Package\EDW_DataFlow\TMS_FINANCIAL.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Source:EDWDataETL@its4logistics.com]"
-                  connectionManagerRefId="Package.ConnectionManagers[Source:EDWDataETL@its4logistics.com]"
+                  connectionManagerID="Package.ConnectionManagers[Source.EDWDataETL@its4logistics.com]"
+                  connectionManagerRefId="Package.ConnectionManagers[Source.EDWDataETL@its4logistics.com]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1013,7 +1013,7 @@ FROM TMS.FINANCIAL WITH (NOLOCK) WHERE NULLIF(code, '') is NOT NULL;</property>
     design-time-name="Package\EDW_DataFlow">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="157,42"
           Id="Package\EDW_DataFlow\TMS_FINANCIAL"
@@ -1022,6 +1022,10 @@ FROM TMS.FINANCIAL WITH (NOLOCK) WHERE NULLIF(code, '') is NOT NULL;</property>
           Size="178,42"
           Id="Package\EDW_DataFlow\Load_Audit_Columns"
           TopLeft="216,139" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\EDW_DataFlow\LOAD_DART_FINANCIAL"
+          TopLeft="206,232" />
         <EdgeLayout
           Id="Package\EDW_DataFlow.Paths[OLE DB Source Output]"
           TopLeft="293.5,91">
@@ -1053,15 +1057,9 @@ FROM TMS.FINANCIAL WITH (NOLOCK) WHERE NULLIF(code, '') is NOT NULL;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-26.3787109375,29,64.257421875,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="196,42"
-          Id="Package\EDW_DataFlow\LOAD_DART_FINANCIAL"
-          TopLeft="206,232" />
         <EdgeLayout
           Id="Package\EDW_DataFlow.Paths[Derived Column Output]"
           TopLeft="304.5,181">
@@ -1081,9 +1079,7 @@ FROM TMS.FINANCIAL WITH (NOLOCK) WHERE NULLIF(code, '') is NOT NULL;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-32.1287109375,16.12841796875,64.257421875,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
