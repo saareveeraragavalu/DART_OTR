@@ -7,10 +7,10 @@
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
-      DTS:ConnectionString="Data Source=brokerage.database.windows.net;User ID=EDWDataETL@its4logistics.com;Initial Catalog=ODS;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Customer-{997E840C-417D-456C-9F60-A2533B91233A}brokerage.database.windows.net.ODS.ychengalvaraya@its4logistics.com1;Use Encryption for Data=True;Authentication=ActiveDirectoryPassword;">
+      DTS:ConnectionString="Data Source=brokerage.database.windows.net;User ID=EDWDataETL@its4logistics.com;Initial Catalog=ODS;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Customer-{997E840C-417D-456C-9F60-A2533B91233A}brokerage.database.windows.net.ODS.ychengalvaraya@its4logistics.com1;Initial File Name=;Use Encryption for Data=True;Server SPN=;Authentication=ActiveDirectoryPassword;Access Token=;">
       <DTS:Password
         DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbR8luozIgUO8J+NhxITSwwAAAAACAAAAAAADZgAAwAAAABAAAADBpuxI6KpiCyIBiNoj0+QIAAAAAASAAACgAAAAEAAAAKtZx6VH8M4pzSF9eD4mjW+AAAAA+39iYnWRMbvlGYpmaEBct90Xm7RYx2BLjs20SdalB74/gu8BNS6/LulyzLQPGa/0Dnrw/69Fv5CZNE9RkMD13VVTb8e4WCXkWjqKGRa8H5cobfI+uYQgmkFvXgzHtvu0GFJ2X82OBJtkCr6kQB/DYy4wSGS++RcDmffA3j7IC9gUAAAA+rWC7MKOpF3qWDgKmxUB2i+ep+U=</DTS:Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbR8luozIgUO8J+NhxITSwwAAAAACAAAAAAADZgAAwAAAABAAAAC2gkp8riQECZgPeGGDe9y6AAAAAASAAACgAAAAEAAAAGS19ipwM4n+reTrX9W6wIyAAAAAkAuWSCx0Mqj391ZdDxfqjyc6ukYopho4w0ZI0+cAfOyCln7ul7mtja52lHvGj8S5yGSZ6c3lt1W0kVwRdLf36WisUTBR6RMFY3Be+pF1F75WQP5aTeK+FMP1gxBCDLPFrqa3fxzx2QuMZm42GytAJeXmTPFBlMGhn1kxcy9w7HcUAAAANVjWQ3t/GlkpR73d9UURukW2Ya8=</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>

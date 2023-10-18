@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="load_Drayage_RegionZips"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{13162E6F-010A-4196-B556-7D7327A05317}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{BCE75F9D-50CA-4378-A06F-1C900E41AF48}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -187,8 +187,8 @@
               <connections>
                 <connection
                   refId="Package\Load Stage table\load_Drayage_RegionZips.Connections[OleDbConnection]"
-                  connectionManagerID="{66984A6C-9471-4E9A-A479-FC6A3B4B719D}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Target vs-dev-edw01 its local POC_ITS_EDW_Staging]"
+                  connectionManagerID="{AA4F20D0-E8BB-4785-B126-AC8F7506877D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Target.vs-dev-edw01 its local POC_ITS_EDW_Staging]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -373,7 +373,7 @@
               <connections>
                 <connection
                   refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Connections[OleDbConnection]"
-                  connectionManagerID="{74C7820F-DBFE-400F-9C4E-B336AA3BDF6D}:external"
+                  connectionManagerID="{7D3394A2-2ED0-4E67-A100-1B570F057528}:external"
                   connectionManagerRefId="Project.ConnectionManagers[Source vs-its-edw01 its local ITS_DataLake]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -547,7 +547,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{66984A6C-9471-4E9A-A479-FC6A3B4B719D}"
+          SQLTask:Connection="{AA4F20D0-E8BB-4785-B126-AC8F7506877D}"
           SQLTask:SqlStatementSource="truncate table load_Drayage_RegionZips" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>

@@ -26,12 +26,13 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">ENCLTD038</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbR8luozIgUO8J+NhxITSwwAAAAACAAAAAAADZgAAwAAAABAAAAC1e1OnItwHeBwdimLVERH3AAAAAASAAACgAAAAEAAAAN/IfCLlVV5WxU3E0I9ehp2IAAAAwEVduVsiTg2/fltQfWawCuQ0pFRF3YGMRpZkR1uDQFIj+JDFMWZzU1BV2FkB1pRIioiwUFtr9EF1ZWudJs/ZUTVcHI3iObSB8Pr5QLfhZhUnet/8ZwVoc80icjglhzkh8k/iCfZB2JcG1Eap57jjHsZx65pUp+hdJGZxnmjuHInA1GwLe68BtRQAAAAvggluh6n1Jm+E8MkPROoMVYOSQw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbR8luozIgUO8J+NhxITSwwAAAAACAAAAAAADZgAAwAAAABAAAAAUGpoj/puWgDiKG75QI1VXAAAAAASAAACgAAAAEAAAAPhEA51G5kmhCpqVW5syyoSIAAAAnOXEFGfuIAyWGPiwM5OZRVris4UNg6uLaPMvOEAChJLMcCEu2nLPpIEhcZMZvFQnzSoZ6cIgs4dM6uBBAo0sHrRnRmC0JmFpCjVbvtF1shmGLGEQeeUMpJNWYtmyjBR9cSFZplP055WE3bz9xdXVugfsNwtPt1TeNT+gDrW13cjmsCR9guGCLhQAAAA2xLjmi/M5Zy0T3qUZZsMwq0EoYQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
-          <SSIS:Package SSIS:Name="Contact.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="load_Drayage_RegionZips.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="load_DART_customer.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Contact.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="Target.vs-dev-edw01 its local POC_ITS_EDW_Staging.conmgr" />
@@ -40,6 +41,139 @@
         </SSIS:ConnectionManagers>
         <SSIS:DeploymentInfo>
           <SSIS:ProjectConnectionParameters>
+            <SSIS:Parameter SSIS:Name="CM.Target.vs-dev-edw01 its local POC_ITS_EDW_Staging.ConnectByProxy">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.Target.vs-dev-edw01 its local POC_ITS_EDW_Staging.ConnectRetryCount">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.Target.vs-dev-edw01 its local POC_ITS_EDW_Staging.ConnectRetryInterval">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">5</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.Target.vs-dev-edw01 its local POC_ITS_EDW_Staging.ConnectUsingManagedIdentity">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.Target.vs-dev-edw01 its local POC_ITS_EDW_Staging.InitialCatalog">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">POC_ITS_EDW_Staging</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.Target.vs-dev-edw01 its local POC_ITS_EDW_Staging.Password">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.Target.vs-dev-edw01 its local POC_ITS_EDW_Staging.RetainSameConnection">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.Target.vs-dev-edw01 its local POC_ITS_EDW_Staging.ServerName">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">vs-dev-edw01.its.local</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.Target.vs-dev-edw01 its local POC_ITS_EDW_Staging.UserName">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
             <SSIS:Parameter SSIS:Name="CM.Source vs-its-edw01 its local ITS_DataLake.ConnectByProxy">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
@@ -173,7 +307,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.Target vs-dev-edw01 its local POC_ITS_EDW_Staging.ConnectByProxy">
+            <SSIS:Parameter SSIS:Name="CM.Source EDWDataETL@its4logistics com.ConnectByProxy">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -188,7 +322,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.Target vs-dev-edw01 its local POC_ITS_EDW_Staging.ConnectionString">
+            <SSIS:Parameter SSIS:Name="CM.Source EDWDataETL@its4logistics com.ConnectionString">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -199,11 +333,11 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=vs-dev-edw01.its.local;Initial Catalog=POC_ITS_EDW_Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=brokerage.database.windows.net;User ID=EDWDataETL@its4logistics.com;Initial Catalog=ODS;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Customer-{997E840C-417D-456C-9F60-A2533B91233A}brokerage.database.windows.net.ODS.ychengalvaraya@its4logistics.com1;Initial File Name=;Use Encryption for Data=True;Server SPN=;Authentication=ActiveDirectoryPassword;Access Token=;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.Target vs-dev-edw01 its local POC_ITS_EDW_Staging.ConnectRetryCount">
+            <SSIS:Parameter SSIS:Name="CM.Source EDWDataETL@its4logistics com.ConnectRetryCount">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -218,7 +352,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.Target vs-dev-edw01 its local POC_ITS_EDW_Staging.ConnectRetryInterval">
+            <SSIS:Parameter SSIS:Name="CM.Source EDWDataETL@its4logistics com.ConnectRetryInterval">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -233,7 +367,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.Target vs-dev-edw01 its local POC_ITS_EDW_Staging.ConnectUsingManagedIdentity">
+            <SSIS:Parameter SSIS:Name="CM.Source EDWDataETL@its4logistics com.ConnectUsingManagedIdentity">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -248,7 +382,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.Target vs-dev-edw01 its local POC_ITS_EDW_Staging.InitialCatalog">
+            <SSIS:Parameter SSIS:Name="CM.Source EDWDataETL@its4logistics com.InitialCatalog">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -259,11 +393,11 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">POC_ITS_EDW_Staging</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">ODS</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.Target vs-dev-edw01 its local POC_ITS_EDW_Staging.Password">
+            <SSIS:Parameter SSIS:Name="CM.Source EDWDataETL@its4logistics com.Password">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -277,7 +411,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.Target vs-dev-edw01 its local POC_ITS_EDW_Staging.RetainSameConnection">
+            <SSIS:Parameter SSIS:Name="CM.Source EDWDataETL@its4logistics com.RetainSameConnection">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -292,7 +426,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.Target vs-dev-edw01 its local POC_ITS_EDW_Staging.ServerName">
+            <SSIS:Parameter SSIS:Name="CM.Source EDWDataETL@its4logistics com.ServerName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -303,11 +437,11 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">vs-dev-edw01.its.local</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">brokerage.database.windows.net</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.Target vs-dev-edw01 its local POC_ITS_EDW_Staging.UserName">
+            <SSIS:Parameter SSIS:Name="CM.Source EDWDataETL@its4logistics com.UserName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -318,28 +452,63 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">EDWDataETL@its4logistics.com</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
           </SSIS:ProjectConnectionParameters>
           <SSIS:PackageInfo>
+            <SSIS:PackageMetaData SSIS:Name="load_Drayage_RegionZips.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{2F442A2A-0B49-4DC9-9956-897329FFA576}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">load_Drayage_RegionZips</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">39</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{BCE75F9D-50CA-4378-A06F-1C900E41AF48}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="load_DART_customer.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{B98F618B-0BBA-4DE2-8220-015C9DF45490}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">load_DART_customer</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">23</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{7D9B3C3E-7122-41C2-88F0-A8BC463715F6}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="Contact.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{DD245BFC-2ABB-42B5-AB25-E4D89827F312}</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{9E71B3C3-84DF-4D83-B034-4D7B6E63C033}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">Contact</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">7</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{B835FF27-5D29-4F2D-B065-407BD0AB044D}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{49C122EF-6A41-4015-B6E7-B68591063F39}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
               <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.fsahulhameed@its4logistics.com.ConnectByProxy">
+                <SSIS:Parameter SSIS:Name="CM.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.ConnectByProxy">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -354,22 +523,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.fsahulhameed@its4logistics.com.ConnectionString">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=brokerage.database.windows.net;User ID=fsahulhameed@its4logistics.com;Initial Catalog=ODS;Provider=MSOLEDBSQL.1;Persist Security Info=False;Initial File Name=;Use Encryption for Data=True;Server SPN=;Authentication=ActiveDirectoryInteractive;Access Token=;Application Name=SSIS-Package-{F6DFDBBA-7584-4401-AEF8-1A45E07B5074}brokerage.database.windows.net.fsahulhameed@its4logistics.com;</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.fsahulhameed@its4logistics.com.ConnectRetryCount">
+                <SSIS:Parameter SSIS:Name="CM.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.ConnectRetryCount">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -384,7 +538,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.fsahulhameed@its4logistics.com.ConnectRetryInterval">
+                <SSIS:Parameter SSIS:Name="CM.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.ConnectRetryInterval">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -399,7 +553,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.fsahulhameed@its4logistics.com.ConnectUsingManagedIdentity">
+                <SSIS:Parameter SSIS:Name="CM.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.ConnectUsingManagedIdentity">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -414,7 +568,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.fsahulhameed@its4logistics.com.InitialCatalog">
+                <SSIS:Parameter SSIS:Name="CM.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.InitialCatalog">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -425,11 +579,11 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">ODS</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">POC_ITS_EDW_Staging</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.fsahulhameed@its4logistics.com.Password">
+                <SSIS:Parameter SSIS:Name="CM.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.Password">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -443,7 +597,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.fsahulhameed@its4logistics.com.RetainSameConnection">
+                <SSIS:Parameter SSIS:Name="CM.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.RetainSameConnection">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -458,7 +612,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.fsahulhameed@its4logistics.com.ServerName">
+                <SSIS:Parameter SSIS:Name="CM.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.ServerName">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -469,11 +623,11 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">brokerage.database.windows.net</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">vs-dev-edw01.its.local</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.fsahulhameed@its4logistics.com.UserName">
+                <SSIS:Parameter SSIS:Name="CM.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.UserName">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -484,28 +638,10 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">fsahulhameed@its4logistics.com</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
               </SSIS:Parameters>
-            </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="load_Drayage_RegionZips.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{2F442A2A-0B49-4DC9-9956-897329FFA576}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">load_Drayage_RegionZips</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">37</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{13162E6F-010A-4196-B556-7D7327A05317}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters />
             </SSIS:PackageMetaData>
           </SSIS:PackageInfo>
         </SSIS:DeploymentInfo>
