@@ -5,38 +5,38 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="ENCLTD038"
   DTS:CreatorName="CORP\FSahulHameed"
-  DTS:DTSID="{888F65F3-181C-437C-AC16-3B068A7DAB16}"
+  DTS:DTSID="{C690F122-9936-4E02-9E14-92B627496AAE}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="16393"
   DTS:ObjectName="load_DART_financial"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{8CFCEA4E-F897-4855-824F-138D15916557}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{83FF951E-927B-4065-8B2B-15F5735B8A11}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Source:EDWDataETL@its4logistics.com]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{D562CC54-BBFD-4608-9C85-6C413535193B}"
+      DTS:DTSID="{ACEB6AEE-C4AC-4E01-A1F8-916826245111}"
       DTS:ObjectName="Source:EDWDataETL@its4logistics.com">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=brokerage.database.windows.net;User ID=EDWDataETL@its4logistics.com;Initial Catalog=ODS;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-Package-{D562CC54-BBFD-4608-9C85-6C413535193B}brokerage.database.windows.net.fsahulhameed@its4logistics.com;Use Encryption for Data=True;Authentication=ActiveDirectoryPassword;">
+          DTS:ConnectionString="Data Source=brokerage.database.windows.net;User ID=EDWDataETL@its4logistics.com;Initial Catalog=ODS;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-Package-{ACEB6AEE-C4AC-4E01-A1F8-916826245111}brokerage.database.windows.net.fsahulhameed@its4logistics.com;Use Encryption for Data=True;Authentication=ActiveDirectoryPassword;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAs+CaDgKUMEKoW2GdjPUfVQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACwaEwAenVH2wCkugyKPTpmAAAAAASAAACgAAAAEAAAABM2U0IQgy64l7uaze1j9d4gAAAAGoFdbQ0w/NvDmL7mFikKKQBVALZ2z09N2qZAghDTQqcUAAAAmnxeaDBJ5smjvSPx23fHvPx2534</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAs+CaDgKUMEKoW2GdjPUfVQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA27SAzli5rdwyI/A6/6EshAAAAAASAAACgAAAAEAAAAMtKzhd4R/1SEelBGhqvNm8gAAAAIszPnI5gqHqu8TsOwu5hiTmTRNSy1TharpSYNJka4w0UAAAAqAWHLI4nQ3ap9HHxFS+wtaRUTQ8</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{BDF0703E-5D22-42B7-9EA5-625575D4BF9B}"
+      DTS:DTSID="{6FFB1649-1C86-469D-BC12-7453AEE11721}"
       DTS:ObjectName="Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -52,7 +52,7 @@
       DTS:refId="Package\EDW_DataFlow"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{7E6D593A-7874-47B0-AF03-551435E98678}"
+      DTS:DTSID="{2722E90F-05AA-4C38-A3BA-EE0693AEE8DC}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="EDW_DataFlow"
@@ -940,7 +940,7 @@ FROM TMS.FINANCIAL WITH (NOLOCK) WHERE NULLIF(code, '') is NOT NULL;</property>
       DTS:refId="Package\Truncate_Target"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{D497E12E-9DDD-4726-814B-EF5F5DB36651}"
+      DTS:DTSID="{4228C762-6E9C-445E-8AA6-D80A4F24B54D}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate_Target"
@@ -949,7 +949,7 @@ FROM TMS.FINANCIAL WITH (NOLOCK) WHERE NULLIF(code, '') is NOT NULL;</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{BDF0703E-5D22-42B7-9EA5-625575D4BF9B}"
+          SQLTask:Connection="{6FFB1649-1C86-469D-BC12-7453AEE11721}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE load_DART_financial" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -958,7 +958,7 @@ FROM TMS.FINANCIAL WITH (NOLOCK) WHERE NULLIF(code, '') is NOT NULL;</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{B54F3834-266C-4D23-9435-26DE61441487}"
+      DTS:DTSID="{D7A8EEAD-BED2-422E-A6E5-60A18812B106}"
       DTS:From="Package\Truncate_Target"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"

@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">ENCLTD038</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAs+CaDgKUMEKoW2GdjPUfVQAAAAACAAAAAAADZgAAwAAAABAAAAADIAXv1Mk5AJGgLSXMKt0yAAAAAASAAACgAAAAEAAAANBkE8GsESYKh8mC6W8BZXiIAAAAgs/9s53RFBc/VNoB7CuvYGgZvOCPT9dJmFagcWGedEINX6ExRpe5BLhnpSSPIFFnLeQqgadNr+8KLZOt7kdmFoSmFxVnkaEuV82J4i+z0n/lQozr8YawWB/HDA2ZZAOCKhqByctWyApJfH+iCXMcrKX0JqQ8az6ML0rVALiaNS8/NxOOA/fnohQAAAAVgwPe5ZN2Oyhf7wYVxkwRvTjFZQ==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAs+CaDgKUMEKoW2GdjPUfVQAAAAACAAAAAAADZgAAwAAAABAAAAB0pO1uo2JG1ZfiWQKRhnL/AAAAAASAAACgAAAAEAAAACT14DsWZGujogo5FNyHg0yIAAAACmAmtAEmcmdczzSCO/+m0upzrYx+eu8r0aW/XCu3cKLlVrwOD4Q+MsB9QTpQvyYiME1P6x1HmUx2wiy4rh3aMbsDhtKdbYedmWwFZJs3IdNCeBYK76wRGTBizwvPjhvKapd01rjDHQ8Lp6jGip/lGRha+ZvlwevZyWJCNF6+fZck4uHUNxKKRBQAAAAIyR9ASTaaKnlHwKbX14l4AQOR/w==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -339,21 +339,21 @@
             </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="load_DART_financial.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{888F65F3-181C-437C-AC16-3B068A7DAB16}</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{C690F122-9936-4E02-9E14-92B627496AAE}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">load_DART_financial</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">11</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{A18221E1-5D6A-4CDE-9EEB-190F18EC37D8}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{83FF951E-927B-4065-8B2B-15F5735B8A11}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
               <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.EDWDataETL@its4logistics.com.ConnectByProxy">
+                <SSIS:Parameter SSIS:Name="CM.Source:EDWDataETL@its4logistics.com.ConnectByProxy">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -368,7 +368,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.EDWDataETL@its4logistics.com.ConnectionString">
+                <SSIS:Parameter SSIS:Name="CM.Source:EDWDataETL@its4logistics.com.ConnectionString">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -379,11 +379,11 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=brokerage.database.windows.net;User ID=EDWDataETL@its4logistics.com;Initial Catalog=ODS;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-Package-{D562CC54-BBFD-4608-9C85-6C413535193B}brokerage.database.windows.net.fsahulhameed@its4logistics.com;Use Encryption for Data=True;Authentication=ActiveDirectoryPassword;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=brokerage.database.windows.net;User ID=EDWDataETL@its4logistics.com;Initial Catalog=ODS;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-Package-{ACEB6AEE-C4AC-4E01-A1F8-916826245111}brokerage.database.windows.net.fsahulhameed@its4logistics.com;Use Encryption for Data=True;Authentication=ActiveDirectoryPassword;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.EDWDataETL@its4logistics.com.ConnectRetryCount">
+                <SSIS:Parameter SSIS:Name="CM.Source:EDWDataETL@its4logistics.com.ConnectRetryCount">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -398,7 +398,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.EDWDataETL@its4logistics.com.ConnectRetryInterval">
+                <SSIS:Parameter SSIS:Name="CM.Source:EDWDataETL@its4logistics.com.ConnectRetryInterval">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -413,7 +413,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.EDWDataETL@its4logistics.com.ConnectUsingManagedIdentity">
+                <SSIS:Parameter SSIS:Name="CM.Source:EDWDataETL@its4logistics.com.ConnectUsingManagedIdentity">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -428,7 +428,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.EDWDataETL@its4logistics.com.InitialCatalog">
+                <SSIS:Parameter SSIS:Name="CM.Source:EDWDataETL@its4logistics.com.InitialCatalog">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -443,7 +443,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.EDWDataETL@its4logistics.com.Password">
+                <SSIS:Parameter SSIS:Name="CM.Source:EDWDataETL@its4logistics.com.Password">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -457,7 +457,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.EDWDataETL@its4logistics.com.RetainSameConnection">
+                <SSIS:Parameter SSIS:Name="CM.Source:EDWDataETL@its4logistics.com.RetainSameConnection">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -472,7 +472,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.EDWDataETL@its4logistics.com.ServerName">
+                <SSIS:Parameter SSIS:Name="CM.Source:EDWDataETL@its4logistics.com.ServerName">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -487,7 +487,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.brokerage.database.windows.net.EDWDataETL@its4logistics.com.UserName">
+                <SSIS:Parameter SSIS:Name="CM.Source:EDWDataETL@its4logistics.com.UserName">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -502,7 +502,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.ConnectByProxy">
+                <SSIS:Parameter SSIS:Name="CM.Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging.ConnectByProxy">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -517,7 +517,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.ConnectionString">
+                <SSIS:Parameter SSIS:Name="CM.Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging.ConnectionString">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -532,7 +532,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.ConnectRetryCount">
+                <SSIS:Parameter SSIS:Name="CM.Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging.ConnectRetryCount">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -547,7 +547,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.ConnectRetryInterval">
+                <SSIS:Parameter SSIS:Name="CM.Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging.ConnectRetryInterval">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -562,7 +562,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.ConnectUsingManagedIdentity">
+                <SSIS:Parameter SSIS:Name="CM.Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging.ConnectUsingManagedIdentity">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -577,7 +577,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.InitialCatalog">
+                <SSIS:Parameter SSIS:Name="CM.Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging.InitialCatalog">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -592,7 +592,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.Password">
+                <SSIS:Parameter SSIS:Name="CM.Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging.Password">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -606,7 +606,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.RetainSameConnection">
+                <SSIS:Parameter SSIS:Name="CM.Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging.RetainSameConnection">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -621,7 +621,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.ServerName">
+                <SSIS:Parameter SSIS:Name="CM.Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging.ServerName">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -636,7 +636,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.UserName">
+                <SSIS:Parameter SSIS:Name="CM.Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging.UserName">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
