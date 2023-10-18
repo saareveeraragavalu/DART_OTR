@@ -34,8 +34,9 @@
           <SSIS:Package SSIS:Name="load_Drayage_RegionZips.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
-          <SSIS:ConnectionManager SSIS:Name="Source.vs-its-edw01.its.local.ITS_DataLake.conmgr" />
-          <SSIS:ConnectionManager SSIS:Name="Target.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="Target.vs-dev-edw01 its local POC_ITS_EDW_Staging.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="Source.vs-its-edw01 its local ITS_DataLake.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="Source.EDWDataETL@its4logistics.com.conmgr" />
         </SSIS:ConnectionManagers>
         <SSIS:DeploymentInfo>
           <SSIS:ProjectConnectionParameters>
