@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="load_Drayage_RCM"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{FB720625-4FEE-4554-9C30-A94991630319}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{8BAA7B7C-EB27-474D-BF38-E19059189993}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -187,8 +187,8 @@
               <connections>
                 <connection
                   refId="Package\EDW_DataFlow\load_Drayage_RCM.Connections[OleDbConnection]"
-                  connectionManagerID="{EEAED064-5F02-42DC-AC15-9B967EF952F6}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Target vs-dev-edw01 its local POC_ITS_EDW_Staging]"
+                  connectionManagerID="{AA4F20D0-E8BB-4785-B126-AC8F7506877D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Target.vs-dev-edw01 its local POC_ITS_EDW_Staging]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -348,7 +348,7 @@
               <connections>
                 <connection
                   refId="Package\EDW_DataFlow\vs-its-edw01_ITS_DataLake_Static_Drayage_RCM.Connections[OleDbConnection]"
-                  connectionManagerID="{2411CEBF-5E94-4388-B9B4-8C3A4C0AA828}:external"
+                  connectionManagerID="{7D3394A2-2ED0-4E67-A100-1B570F057528}:external"
                   connectionManagerRefId="Project.ConnectionManagers[Source vs-its-edw01 its local ITS_DataLake]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -486,7 +486,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{EEAED064-5F02-42DC-AC15-9B967EF952F6}"
+          SQLTask:Connection="{AA4F20D0-E8BB-4785-B126-AC8F7506877D}"
           SQLTask:SqlStatementSource="truncate table load_Drayage_RCM" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
