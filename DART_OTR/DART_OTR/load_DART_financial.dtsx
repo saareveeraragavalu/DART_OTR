@@ -11,41 +11,10 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="load_DART_financial"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{62CF4C16-83E8-4ADC-8476-119C3F5FE933}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{9FD5B53B-A5D9-4A16-9601-0A324C04E0C5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Source.EDWDataETL@its4logistics.com]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{ACEB6AEE-C4AC-4E01-A1F8-916826245111}"
-      DTS:ObjectName="Source.EDWDataETL@its4logistics.com">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=brokerage.database.windows.net;User ID=EDWDataETL@its4logistics.com;Initial Catalog=ODS;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-Package-{ACEB6AEE-C4AC-4E01-A1F8-916826245111}brokerage.database.windows.net.fsahulhameed@its4logistics.com;Use Encryption for Data=True;Authentication=ActiveDirectoryPassword;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAs+CaDgKUMEKoW2GdjPUfVQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD9/Bh5akfO9WyCvDNK6t9mAAAAAASAAACgAAAAEAAAANuN8fQ/QeMogYE4yH2/TlcgAAAAIsqVMtUK5zTfL5RvvzHonluIrkmpGR7U4ZYOk3+B9D4UAAAAI7qpog1RPc5GA3HOj9b5c8gVmKY</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Target.vs-dev-edw01.its.local.POC_ITS_EDW_Staging]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{6FFB1649-1C86-469D-BC12-7453AEE11721}"
-      DTS:ObjectName="Target.vs-dev-edw01.its.local.POC_ITS_EDW_Staging">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=vs-dev-edw01.its.local;Initial Catalog=POC_ITS_EDW_Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -218,8 +187,8 @@
               <connections>
                 <connection
                   refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Target.vs-dev-edw01.its.local.POC_ITS_EDW_Staging]"
-                  connectionManagerRefId="Package.ConnectionManagers[Target.vs-dev-edw01.its.local.POC_ITS_EDW_Staging]"
+                  connectionManagerID="{6FFB1649-1C86-469D-BC12-7453AEE11721}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Target.vs-dev-edw01.its.local.POC_ITS_EDW_Staging]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -541,8 +510,8 @@ FROM TMS.FINANCIAL WITH (NOLOCK) WHERE NULLIF(code, '') is NOT NULL;</property>
               <connections>
                 <connection
                   refId="Package\EDW_DataFlow\TMS_FINANCIAL.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Source.EDWDataETL@its4logistics.com]"
-                  connectionManagerRefId="Package.ConnectionManagers[Source.EDWDataETL@its4logistics.com]"
+                  connectionManagerID="{ACEB6AEE-C4AC-4E01-A1F8-916826245111}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Source.EDWDataETL@its4logistics.com]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>

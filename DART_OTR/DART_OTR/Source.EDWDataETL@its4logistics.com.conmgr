@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Source.EDWDataETL@its4logistics.com"
+  DTS:DTSID="{ACEB6AEE-C4AC-4E01-A1F8-916826245111}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=brokerage.database.windows.net;User ID=EDWDataETL@its4logistics.com;Initial Catalog=ODS;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-Package-{ACEB6AEE-C4AC-4E01-A1F8-916826245111}brokerage.database.windows.net.fsahulhameed@its4logistics.com;Use Encryption for Data=True;Authentication=ActiveDirectoryPassword;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAs+CaDgKUMEKoW2GdjPUfVQAAAAACAAAAAAADZgAAwAAAABAAAACOTh/v6wlZ2ft5aB+/2KWVAAAAAASAAACgAAAAEAAAAF59WSbuLt+jjVFOmTCWEmuAAAAAXX6JlrVKjVYy8VkHE1fE9iE1a/bSjeTcoSLlviBYdf9laEq+YXM5MAR4gFs8aGO+t3ey7oR8o3USuuvEkwkijYrOlK2G+MVhosXlSOkS+CvnnQtD9zzZeinEJMi5BIJwSWpr9xpjpxS+V9/uYQJEMZqEa4im+2f/VbvFfNFwlPoUAAAARlqk3zVYHXffWYKA+5g/nNyqRe0=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
