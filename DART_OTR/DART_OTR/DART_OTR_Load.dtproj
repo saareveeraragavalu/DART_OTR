@@ -33,6 +33,7 @@
           <SSIS:Package SSIS:Name="load_Drayage_RegionZips.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="load_DART_customer.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Contact.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="load_Drayage_RCM.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="Target.vs-dev-edw01 its local POC_ITS_EDW_Staging.conmgr" />
