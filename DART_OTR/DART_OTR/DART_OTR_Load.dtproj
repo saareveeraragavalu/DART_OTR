@@ -26,12 +26,12 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">ENCLTD038</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAs+CaDgKUMEKoW2GdjPUfVQAAAAACAAAAAAADZgAAwAAAABAAAABJvHGFe7twuVBt1wi70p3nAAAAAASAAACgAAAAEAAAAMgWC16V3KWZJHOUzYYenJ2IAAAAurJf85dX3VJrbraNRWkKzhvxm/yP/KJ0kLV87QznLaivna7Evx4ehphq2f0fdZk+IgYfsVD26o8GzI6mER5I3kq5lo54+R16xwIrxRsxc92xTFvgxEGdU0j+p44A0Fu7T+9AeWIvkEMKsk3v/YTwK3V2kF8wbyD0zZEd0OG6m+/2I8zN/sq6lRQAAABm3+uECH5AU6vdTfUn3+ssRiEdKA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAs+CaDgKUMEKoW2GdjPUfVQAAAAACAAAAAAADZgAAwAAAABAAAADCj2G7Mi1M0GkAIemOXpo8AAAAAASAAACgAAAAEAAAAN8WKiSFjJ5AsWd9tonnBg2IAAAAJDDcILDjOQvETcuIYbR9watp0PcKWMs1e+0RKwK6bwqOgBODANhhMqkCjK/4vrDtUiM74yAAltVsZbpsp9qBAqAvy2S8IK3kr3nscQdnWXFXhrqUmTrzeGlxh86TpDIpKRTqR7yHELJ3Xr+DoyLspN9ooQlVrabfiYTsbC3Ry3o+xfbIHHtk/xQAAACt0iRVlhbD3w4Akwa3FBwsZVVDtA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="Contact.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="load_DART_financial.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Load_DART_financial.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="Target.vs-dev-edw01.its.local.POC_ITS_EDW_Staging.conmgr" />
@@ -638,16 +638,16 @@
                 </SSIS:Parameter>
               </SSIS:Parameters>
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="load_DART_financial.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="Load_DART_financial.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{C690F122-9936-4E02-9E14-92B627496AAE}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">load_DART_financial</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{C58B0B05-ED96-435D-9462-FD17A8F31D7B}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Load_DART_financial</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">14</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">15</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{9FD5B53B-A5D9-4A16-9601-0A324C04E0C5}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{01762B5A-C00D-4B5A-B258-D5B35C6B2237}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
