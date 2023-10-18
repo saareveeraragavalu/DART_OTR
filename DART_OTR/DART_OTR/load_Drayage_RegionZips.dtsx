@@ -1,0 +1,713 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/12/2023 2:22:43 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ENCLTH274"
+  DTS:CreatorName="CORP\YChengalraya"
+  DTS:DTSID="{2F442A2A-0B49-4DC9-9956-897329FFA576}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="load_Drayage_RegionZips"
+  DTS:PackageType="5"
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{13162E6F-010A-4196-B556-7D7327A05317}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load Stage table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{02C2E1E1-A37C-49D8-86EF-591AA842B872}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Stage table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Stage table\Load_Audit_Columns"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Load_Audit_Columns"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Stage table\Load_Audit_Columns.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Stage table\Load_Audit_Columns.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load Stage table\Load_Audit_Columns.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Stage table\Load_Audit_Columns.Outputs[Derived Column Output].Columns[dssloaddate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Stage table\Load_Audit_Columns.Outputs[Derived Column Output].Columns[dssloaddate]"
+                      name="dssloaddate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Stage table\Load_Audit_Columns.Outputs[Derived Column Output].Columns[dsssource]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Load Stage table\Load_Audit_Columns.Outputs[Derived Column Output].Columns[dsssource]"
+                      name="dsssource"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"ITS_DataLake.WhereScape.Static_Drayage_RegionZips"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"ITS_DataLake.WhereScape.Static_Drayage_RegionZips"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Stage table\Load_Audit_Columns.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load Stage table\Load_Audit_Columns.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Stage table\Load_Audit_Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Stage table\Load_Audit_Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Stage table\Load_Audit_Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Stage table\Load_Audit_Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Stage table\load_Drayage_RegionZips"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="load_Drayage_RegionZips"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[load_Drayage_RegionZips]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Stage table\load_Drayage_RegionZips.Connections[OleDbConnection]"
+                  connectionManagerID="{66984A6C-9471-4E9A-A479-FC6A3B4B719D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Target vs-dev-edw01 its local POC_ITS_EDW_Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].ExternalColumns[region]"
+                      lineageId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].Columns[state]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="state"
+                      externalMetadataColumnId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].ExternalColumns[state]"
+                      lineageId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].Columns[state]" />
+                    <inputColumn
+                      refId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].Columns[zip_codes_from]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="zip_codes_from"
+                      externalMetadataColumnId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].ExternalColumns[zip_codes_from]"
+                      lineageId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].Columns[zip_codes_from]" />
+                    <inputColumn
+                      refId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].Columns[zip_codes_to]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="zip_codes_to"
+                      externalMetadataColumnId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].ExternalColumns[zip_codes_to]"
+                      lineageId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].Columns[zip_codes_to]" />
+                    <inputColumn
+                      refId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].Columns[dsssource]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="dsssource"
+                      externalMetadataColumnId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].ExternalColumns[dss_record_source]"
+                      lineageId="Package\Load Stage table\Load_Audit_Columns.Outputs[Derived Column Output].Columns[dsssource]" />
+                    <inputColumn
+                      refId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].Columns[dssloaddate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dssloaddate"
+                      externalMetadataColumnId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].ExternalColumns[dss_load_date]"
+                      lineageId="Package\Load Stage table\Load_Audit_Columns.Outputs[Derived Column Output].Columns[dssloaddate]" />
+                    <inputColumn
+                      refId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].Columns[state_full_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="state_full_name"
+                      externalMetadataColumnId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].ExternalColumns[state_full_name]"
+                      lineageId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].Columns[state_full_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].ExternalColumns[state_full_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="state_full_name" />
+                    <externalMetadataColumn
+                      refId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].ExternalColumns[state]"
+                      dataType="wstr"
+                      length="50"
+                      name="state" />
+                    <externalMetadataColumn
+                      refId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].ExternalColumns[zip_codes_from]"
+                      dataType="wstr"
+                      length="5"
+                      name="zip_codes_from" />
+                    <externalMetadataColumn
+                      refId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].ExternalColumns[zip_codes_to]"
+                      dataType="wstr"
+                      length="5"
+                      name="zip_codes_to" />
+                    <externalMetadataColumn
+                      refId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].ExternalColumns[region]"
+                      dataType="wstr"
+                      length="2"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].ExternalColumns[dss_record_source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="dss_record_source" />
+                    <externalMetadataColumn
+                      refId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input].ExternalColumns[dss_load_date]"
+                      dataType="dbTimeStamp"
+                      name="dss_load_date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Stage table\load_Drayage_RegionZips.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Stage table\load_Drayage_RegionZips.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Stage table\load_Drayage_RegionZips.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Stage table\load_Drayage_RegionZips.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Stage table\load_Drayage_RegionZips.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[WhereScape].[Static_Drayage_RegionZips]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT CAST(LEFT(TRIM([state_full_name]),50) AS varchar(50)) AS  [state_full_name]
+      ,[state]
+      ,[zip_codes_from]
+      ,[zip_codes_to]
+      ,[Region]
+  FROM [ITS_DataLake].[WhereScape].[Static_Drayage_RegionZips] WITH (NOLOCK)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Connections[OleDbConnection]"
+                  connectionManagerID="{74C7820F-DBFE-400F-9C4E-B336AA3BDF6D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Source vs-its-edw01 its local ITS_DataLake]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].Columns[Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      length="2"
+                      lineageId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].Columns[state_full_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].ExternalColumns[state_full_name]"
+                      length="50"
+                      lineageId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].Columns[state_full_name]"
+                      name="state_full_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].Columns[state]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].ExternalColumns[state]"
+                      length="50"
+                      lineageId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].Columns[state]"
+                      name="state"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].Columns[zip_codes_from]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].ExternalColumns[zip_codes_from]"
+                      length="5"
+                      lineageId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].Columns[zip_codes_from]"
+                      name="zip_codes_from"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].Columns[zip_codes_to]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].ExternalColumns[zip_codes_to]"
+                      length="5"
+                      lineageId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].Columns[zip_codes_to]"
+                      name="zip_codes_to"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="2"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].ExternalColumns[state_full_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="state_full_name" />
+                    <externalMetadataColumn
+                      refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].ExternalColumns[state]"
+                      dataType="wstr"
+                      length="50"
+                      name="state" />
+                    <externalMetadataColumn
+                      refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].ExternalColumns[zip_codes_from]"
+                      dataType="wstr"
+                      length="5"
+                      name="zip_codes_from" />
+                    <externalMetadataColumn
+                      refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output].ExternalColumns[zip_codes_to]"
+                      dataType="wstr"
+                      length="5"
+                      name="zip_codes_to" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Error Output].Columns[state_full_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Error Output].Columns[state_full_name]"
+                      name="state_full_name" />
+                    <outputColumn
+                      refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Error Output].Columns[state]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Error Output].Columns[state]"
+                      name="state" />
+                    <outputColumn
+                      refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Error Output].Columns[zip_codes_from]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Error Output].Columns[zip_codes_from]"
+                      name="zip_codes_from" />
+                    <outputColumn
+                      refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Error Output].Columns[zip_codes_to]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Error Output].Columns[zip_codes_to]"
+                      name="zip_codes_to" />
+                    <outputColumn
+                      refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load Stage table.Paths[Derived Column Output]"
+              endId="Package\Load Stage table\load_Drayage_RegionZips.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Load Stage table\Load_Audit_Columns.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load Stage table.Paths[OLE DB Source Output]"
+              endId="Package\Load Stage table\Load_Audit_Columns.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate staging table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{025D6189-B9D7-43F0-A046-B41120500178}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate staging table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{66984A6C-9471-4E9A-A479-FC6A3B4B719D}"
+          SQLTask:SqlStatementSource="truncate table load_Drayage_RegionZips" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{1CAF5C81-A21F-4D0A-93F2-503A00BA116A}"
+      DTS:From="Package\Truncate staging table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load Stage table" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Load Stage table"
+          TopLeft="265,147" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Truncate staging table"
+          TopLeft="247,55" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="341.75,97">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load Stage table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="344,42"
+          Id="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips"
+          TopLeft="293,42" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Load Stage table\Load_Audit_Columns"
+          TopLeft="291,116" />
+        <NodeLayout
+          Size="201,42"
+          Id="Package\Load Stage table\load_Drayage_RegionZips"
+          TopLeft="282,213" />
+        <EdgeLayout
+          Id="Package\Load Stage table.Paths[OLE DB Source Output]"
+          TopLeft="465,84">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-85,32"
+              Start="0,0"
+              End="-85,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="-4,16" />
+                  <mssgle:LineSegment
+                    End="-81,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-81,16"
+                    Point2="-85,16"
+                    Point3="-85,20" />
+                  <mssgle:LineSegment
+                    End="-85,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Stage table.Paths[Derived Column Output]"
+          TopLeft="381.25,158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Stage table\vs-its-edw01_ITS_DataLake_Static_Drayage_RegionZips">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Stage table\load_Drayage_RegionZips">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
