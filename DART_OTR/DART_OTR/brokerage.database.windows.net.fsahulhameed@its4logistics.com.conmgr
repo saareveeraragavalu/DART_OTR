@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="brokerage.database.windows.net.fsahulhameed@its4logistics.com"
+  DTS:DTSID="{F6DFDBBA-7584-4401-AEF8-1A45E07B5074}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=brokerage.database.windows.net;User ID=rmani@its4logistics.com;Initial Catalog=ODS;Provider=MSOLEDBSQL.1;Persist Security Info=False;Application Name=SSIS-Package-{F6DFDBBA-7584-4401-AEF8-1A45E07B5074}brokerage.database.windows.net.fsahulhameed@its4logistics.com;Use Encryption for Data=True;Authentication=ActiveDirectoryInteractive;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
