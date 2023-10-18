@@ -5,39 +5,39 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="ENCLTD038"
   DTS:CreatorName="CORP\FSahulHameed"
-  DTS:DTSID="{B2B9847E-F90B-4588-B51F-E1505C5D359D}"
+  DTS:DTSID="{888F65F3-181C-437C-AC16-3B068A7DAB16}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="16393"
   DTS:ObjectName="load_DART_financial"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{16A4ECCF-938A-4788-9BB2-07ED8EFF5515}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{8CFCEA4E-F897-4855-824F-138D15916557}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[brokerage.database.windows.net.EDWDataETL]"
+      DTS:refId="Package.ConnectionManagers[Source:EDWDataETL@its4logistics.com]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{5622DCE2-D485-4A96-879C-900AE8A4B18A}"
-      DTS:ObjectName="brokerage.database.windows.net.EDWDataETL">
+      DTS:DTSID="{D562CC54-BBFD-4608-9C85-6C413535193B}"
+      DTS:ObjectName="Source:EDWDataETL@its4logistics.com">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=brokerage.database.windows.net;User ID=EDWDataETL@its4logistics.com;Initial Catalog=ODS;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-Package-{5622DCE2-D485-4A96-879C-900AE8A4B18A}brokerage.database.windows.net.fsahulhameed@its4logistics.com;Initial File Name=;Use Encryption for Data=True;Server SPN=;Authentication=ActiveDirectoryPassword;Access Token=;">
+          DTS:ConnectionString="Data Source=brokerage.database.windows.net;User ID=EDWDataETL@its4logistics.com;Initial Catalog=ODS;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-Package-{D562CC54-BBFD-4608-9C85-6C413535193B}brokerage.database.windows.net.fsahulhameed@its4logistics.com;Use Encryption for Data=True;Authentication=ActiveDirectoryPassword;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAs+CaDgKUMEKoW2GdjPUfVQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAvYZpKhr3FHapnVd5CekCHAAAAAASAAACgAAAAEAAAAKNBf10/KxnUe5mGbC4tAI0gAAAAlM0rFlSu5pF1qx8w6wBB7VSHrJiDLjY2Kk6wUeC69oQUAAAAhp/5Er6p4Wrl4Wzl9ZK+9wPGxPY</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAs+CaDgKUMEKoW2GdjPUfVQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACwaEwAenVH2wCkugyKPTpmAAAAAASAAACgAAAAEAAAABM2U0IQgy64l7uaze1j9d4gAAAAGoFdbQ0w/NvDmL7mFikKKQBVALZ2z09N2qZAghDTQqcUAAAAmnxeaDBJ5smjvSPx23fHvPx2534</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[vs-dev-edw01.its.local.POC_ITS_EDW_Staging]"
+      DTS:refId="Package.ConnectionManagers[Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{A0F0D923-816A-4418-A01E-C90F440F2877}"
-      DTS:ObjectName="vs-dev-edw01.its.local.POC_ITS_EDW_Staging">
+      DTS:DTSID="{BDF0703E-5D22-42B7-9EA5-625575D4BF9B}"
+      DTS:ObjectName="Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
@@ -49,13 +49,13 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task"
+      DTS:refId="Package\EDW_DataFlow"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{D3DE0670-7A4B-4C75-B08C-6E226309C09F}"
+      DTS:DTSID="{7E6D593A-7874-47B0-AF03-551435E98678}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task"
+      DTS:ObjectName="EDW_DataFlow"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -63,15 +63,15 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\Derived Column"
+              refId="Package\EDW_DataFlow\Load_Audit_Columns"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column"
+              name="Load_Audit_Columns"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                  refId="Package\EDW_DataFlow\Load_Audit_Columns.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <externalMetadataColumns />
@@ -79,20 +79,20 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
+                  refId="Package\EDW_DataFlow\Load_Audit_Columns.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\EDW_DataFlow\Load_Audit_Columns.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dss_record_source]"
+                      refId="Package\EDW_DataFlow\Load_Audit_Columns.Outputs[Derived Column Output].Columns[dss_record_source]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dss_record_source]"
+                      length="255"
+                      lineageId="Package\EDW_DataFlow\Load_Audit_Columns.Outputs[Derived Column Output].Columns[dss_record_source]"
                       name="dss_record_source"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -100,21 +100,21 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">"Production_ODS.tms.contact "</property>
+                          name="Expression">"Production_ODS.tms.financial "</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">"Production_ODS.tms.contact "</property>
+                          name="FriendlyExpression">"Production_ODS.tms.financial "</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dss_load_date]"
+                      refId="Package\EDW_DataFlow\Load_Audit_Columns.Outputs[Derived Column Output].Columns[dss_load_date]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dss_load_date]"
+                      lineageId="Package\EDW_DataFlow\Load_Audit_Columns.Outputs[Derived Column Output].Columns[dss_load_date]"
                       name="dss_load_date"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -135,23 +135,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output]"
+                  refId="Package\EDW_DataFlow\Load_Audit_Columns.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\EDW_DataFlow\Load_Audit_Columns.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\EDW_DataFlow\Load_Audit_Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\EDW_DataFlow\Load_Audit_Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\EDW_DataFlow\Load_Audit_Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\EDW_DataFlow\Load_Audit_Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -160,11 +160,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\OLE DB Destination"
+              refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="OLE DB Destination"
+              name="LOAD_DART_FINANCIAL"
               usesDispositions="true"
               version="4">
               <properties>
@@ -205,11 +205,11 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">true</property>
+                  name="FastLoadKeepNulls">false</property>
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                  name="FastLoadOptions">CHECK_CONSTRAINTS</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
@@ -217,153 +217,256 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[vs-dev-edw01.its.local.POC_ITS_EDW_Staging]"
-                  connectionManagerRefId="Package.ConnectionManagers[vs-dev-edw01.its.local.POC_ITS_EDW_Staging]"
+                  refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[Target:vs-dev-edw01.its.local.POC_ITS_EDW_Staging]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id]"
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].Columns[Id]"
                       cachedDataType="i4"
                       cachedName="Id"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]" />
+                      externalMetadataColumnId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[Id]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dss_load_date]"
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].Columns[EventId]"
+                      cachedDataType="i4"
+                      cachedName="EventId"
+                      externalMetadataColumnId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[eventid]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[EventId]" />
+                    <inputColumn
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].Columns[Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Code"
+                      externalMetadataColumnId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[code]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[Code]" />
+                    <inputColumn
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].Columns[CustomerUom]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CustomerUom"
+                      externalMetadataColumnId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[customeruom]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[CustomerUom]" />
+                    <inputColumn
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].Columns[VendorUom]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="VendorUom"
+                      externalMetadataColumnId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[vendoruom]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[VendorUom]" />
+                    <inputColumn
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].Columns[CustomerQuantity]"
+                      cachedDataType="numeric"
+                      cachedName="CustomerQuantity"
+                      cachedPrecision="18"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[customerquantity]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[CustomerQuantity]" />
+                    <inputColumn
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].Columns[CustomerRate]"
+                      cachedDataType="numeric"
+                      cachedName="CustomerRate"
+                      cachedPrecision="18"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[customerrate]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[CustomerRate]" />
+                    <inputColumn
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].Columns[VendorQuantity]"
+                      cachedDataType="numeric"
+                      cachedName="VendorQuantity"
+                      cachedPrecision="18"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[vendorquantity]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[VendorQuantity]" />
+                    <inputColumn
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].Columns[VendorRate]"
+                      cachedDataType="numeric"
+                      cachedName="VendorRate"
+                      cachedPrecision="18"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[vendorrate]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[VendorRate]" />
+                    <inputColumn
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].Columns[Margin]"
+                      cachedDataType="numeric"
+                      cachedName="Margin"
+                      cachedPrecision="18"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[margin]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[Margin]" />
+                    <inputColumn
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].Columns[Pay]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Pay"
+                      externalMetadataColumnId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[pay]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[Pay]" />
+                    <inputColumn
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].Columns[IsAutoCalculated]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="IsAutoCalculated"
+                      externalMetadataColumnId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[isautocalculated]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[IsAutoCalculated]" />
+                    <inputColumn
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].Columns[AccesorialCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="AccesorialCode"
+                      externalMetadataColumnId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[accesorialcode]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[AccesorialCode]" />
+                    <inputColumn
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].Columns[isLineLevelCustomerOverride]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="isLineLevelCustomerOverride"
+                      externalMetadataColumnId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[isLineLevelCustomerOverride]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[isLineLevelCustomerOverride]" />
+                    <inputColumn
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].Columns[dss_record_source]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="dss_record_source"
+                      externalMetadataColumnId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[dss_record_source]"
+                      lineageId="Package\EDW_DataFlow\Load_Audit_Columns.Outputs[Derived Column Output].Columns[dss_record_source]" />
+                    <inputColumn
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].Columns[dss_load_date]"
                       cachedDataType="dbTimeStamp"
                       cachedName="dss_load_date"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dss_load_date]"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dss_load_date]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dss_record_source]"
-                      cachedDataType="wstr"
-                      cachedLength="27"
-                      cachedName="dss_record_source"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dss_record_source]"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[dss_record_source]" />
+                      externalMetadataColumnId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[dss_load_date]"
+                      lineageId="Package\EDW_DataFlow\Load_Audit_Columns.Outputs[Derived Column Output].Columns[dss_load_date]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[id]"
                       dataType="i4"
                       name="id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dss_record_source]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="dss_record_source" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dss_load_date]"
-                      dataType="dbTimeStamp"
-                      name="dss_load_date" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[eventid]"
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[eventid]"
                       dataType="i4"
                       name="eventid" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[code]"
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[code]"
                       codePage="1252"
                       dataType="str"
                       length="20"
                       name="code" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customeruom]"
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[customeruom]"
                       codePage="1252"
                       dataType="str"
                       length="100"
                       name="customeruom" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vendoruom]"
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[vendoruom]"
                       codePage="1252"
                       dataType="str"
                       length="100"
                       name="vendoruom" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customerquantity]"
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[customerquantity]"
                       dataType="numeric"
                       name="customerquantity"
                       precision="18"
                       scale="4" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customerrate]"
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[customerrate]"
                       dataType="numeric"
                       name="customerrate"
                       precision="18"
                       scale="4" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vendorquantity]"
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[vendorquantity]"
                       dataType="numeric"
                       name="vendorquantity"
                       precision="18"
                       scale="4" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vendorrate]"
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[vendorrate]"
                       dataType="numeric"
                       name="vendorrate"
                       precision="18"
                       scale="4" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[margin]"
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[margin]"
                       dataType="numeric"
                       name="margin"
                       precision="18"
                       scale="4" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pay]"
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[pay]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="pay" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[isautocalculated]"
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[isautocalculated]"
                       codePage="1252"
                       dataType="str"
                       length="10"
                       name="isautocalculated" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accesorialcode]"
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[accesorialcode]"
                       codePage="1252"
                       dataType="str"
                       length="20"
                       name="accesorialcode" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[isLineLevelCustomerOverride]"
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[isLineLevelCustomerOverride]"
                       codePage="1252"
                       dataType="str"
                       length="20"
                       name="isLineLevelCustomerOverride" />
+                    <externalMetadataColumn
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[dss_record_source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="dss_record_source" />
+                    <externalMetadataColumn
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input].ExternalColumns[dss_load_date]"
+                      dataType="dbTimeStamp"
+                      name="dss_load_date" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -372,11 +475,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\OLE DB Source"
+              refId="Package\EDW_DataFlow\TMS_FINANCIAL"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="OLE DB Source"
+              name="TMS_FINANCIAL"
               usesDispositions="true"
               version="7">
               <properties>
@@ -387,7 +490,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[tms].[contact]</property>
+                  name="OpenRowset">[tms].[financial]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -396,7 +499,23 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+Id
+,EventId
+,Code
+,CustomerUom
+,VendorUom
+,CustomerQuantity
+,CustomerRate
+,VendorQuantity
+,VendorRate
+,Margin
+,Pay
+,IsAutoCalculated
+,AccesorialCode
+,SortOrder
+,isLineLevelCustomerOverride
+FROM TMS.FINANCIAL WITH (NOLOCK) WHERE NULLIF(code, '') is NOT NULL;</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -413,7 +532,7 @@
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
@@ -421,193 +540,379 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[brokerage.database.windows.net.EDWDataETL]"
-                  connectionManagerRefId="Package.ConnectionManagers[brokerage.database.windows.net.EDWDataETL]"
+                  refId="Package\EDW_DataFlow\TMS_FINANCIAL.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Source:EDWDataETL@its4logistics.com]"
+                  connectionManagerRefId="Package.ConnectionManagers[Source:EDWDataETL@its4logistics.com]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]"
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[Id]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]"
+                      externalMetadataColumnId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[Id]"
                       name="Id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[GroupingKey]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GroupingKey]"
-                      length="100"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[GroupingKey]"
-                      name="GroupingKey"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[GroupingId]"
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[EventId]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GroupingId]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[GroupingId]"
-                      name="GroupingId"
+                      externalMetadataColumnId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[EventId]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[EventId]"
+                      name="EventId"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Type]"
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[Code]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Type]"
+                      externalMetadataColumnId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      length="20"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[Code]"
+                      name="Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[CustomerUom]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[CustomerUom]"
                       length="100"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Type]"
-                      name="Type"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[CustomerUom]"
+                      name="CustomerUom"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[VendorUom]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      externalMetadataColumnId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[VendorUom]"
                       length="100"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
-                      name="Name"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[VendorUom]"
+                      name="VendorUom"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]"
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[CustomerQuantity]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[CustomerQuantity]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[CustomerQuantity]"
+                      name="CustomerQuantity"
+                      precision="18"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[CustomerRate]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[CustomerRate]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[CustomerRate]"
+                      name="CustomerRate"
+                      precision="18"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[VendorQuantity]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[VendorQuantity]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[VendorQuantity]"
+                      name="VendorQuantity"
+                      precision="18"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[VendorRate]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[VendorRate]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[VendorRate]"
+                      name="VendorRate"
+                      precision="18"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[Margin]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[Margin]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[Margin]"
+                      name="Margin"
+                      precision="18"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[Pay]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Email]"
-                      length="255"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]"
-                      name="Email"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Phone]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Phone]"
+                      externalMetadataColumnId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[Pay]"
                       length="50"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Phone]"
-                      name="Phone"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[Pay]"
+                      name="Pay"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[IsAutoCalculated]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[IsAutoCalculated]"
+                      length="10"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[IsAutoCalculated]"
+                      name="IsAutoCalculated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[AccesorialCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[AccesorialCode]"
+                      length="20"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[AccesorialCode]"
+                      name="AccesorialCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[SortOrder]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[SortOrder]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[SortOrder]"
+                      name="SortOrder"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[isLineLevelCustomerOverride]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[isLineLevelCustomerOverride]"
+                      length="20"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].Columns[isLineLevelCustomerOverride]"
+                      name="isLineLevelCustomerOverride"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[Id]"
                       dataType="i4"
                       name="Id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GroupingKey]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="GroupingKey" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GroupingId]"
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[EventId]"
                       dataType="i4"
-                      name="GroupingId" />
+                      name="EventId" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Type]"
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[CustomerUom]"
                       codePage="1252"
                       dataType="str"
                       length="100"
-                      name="Type" />
+                      name="CustomerUom" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[VendorUom]"
                       codePage="1252"
                       dataType="str"
                       length="100"
-                      name="Name" />
+                      name="VendorUom" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Email]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="Email" />
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[CustomerQuantity]"
+                      dataType="numeric"
+                      name="CustomerQuantity"
+                      precision="18"
+                      scale="4" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Phone]"
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[CustomerRate]"
+                      dataType="numeric"
+                      name="CustomerRate"
+                      precision="18"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[VendorQuantity]"
+                      dataType="numeric"
+                      name="VendorQuantity"
+                      precision="18"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[VendorRate]"
+                      dataType="numeric"
+                      name="VendorRate"
+                      precision="18"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[Margin]"
+                      dataType="numeric"
+                      name="Margin"
+                      precision="18"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[Pay]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      name="Phone" />
+                      name="Pay" />
+                    <externalMetadataColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[IsAutoCalculated]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="IsAutoCalculated" />
+                    <externalMetadataColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[AccesorialCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="AccesorialCode" />
+                    <externalMetadataColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[SortOrder]"
+                      dataType="i4"
+                      name="SortOrder" />
+                    <externalMetadataColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output].ExternalColumns[isLineLevelCustomerOverride]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="isLineLevelCustomerOverride" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[Id]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[Id]"
                       name="Id" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GroupingKey]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GroupingKey]"
-                      name="GroupingKey" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GroupingId]"
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[EventId]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GroupingId]"
-                      name="GroupingId" />
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[EventId]"
+                      name="EventId" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Type]"
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      name="Code" />
+                    <outputColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[CustomerUom]"
                       codePage="1252"
                       dataType="str"
                       length="100"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Type]"
-                      name="Type" />
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[CustomerUom]"
+                      name="CustomerUom" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[VendorUom]"
                       codePage="1252"
                       dataType="str"
                       length="100"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
-                      name="Name" />
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[VendorUom]"
+                      name="VendorUom" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Email]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Email]"
-                      name="Email" />
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[CustomerQuantity]"
+                      dataType="numeric"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[CustomerQuantity]"
+                      name="CustomerQuantity"
+                      precision="18"
+                      scale="4" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Phone]"
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[CustomerRate]"
+                      dataType="numeric"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[CustomerRate]"
+                      name="CustomerRate"
+                      precision="18"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[VendorQuantity]"
+                      dataType="numeric"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[VendorQuantity]"
+                      name="VendorQuantity"
+                      precision="18"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[VendorRate]"
+                      dataType="numeric"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[VendorRate]"
+                      name="VendorRate"
+                      precision="18"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[Margin]"
+                      dataType="numeric"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[Margin]"
+                      name="Margin"
+                      precision="18"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[Pay]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Phone]"
-                      name="Phone" />
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[Pay]"
+                      name="Pay" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[IsAutoCalculated]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[IsAutoCalculated]"
+                      name="IsAutoCalculated" />
+                    <outputColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[AccesorialCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[AccesorialCode]"
+                      name="AccesorialCode" />
+                    <outputColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[SortOrder]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[SortOrder]"
+                      name="SortOrder" />
+                    <outputColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[isLineLevelCustomerOverride]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[isLineLevelCustomerOverride]"
+                      name="isLineLevelCustomerOverride" />
+                    <outputColumn
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -618,34 +923,34 @@
           </components>
           <paths>
             <path
-              refId="Package\Data Flow Task.Paths[Derived Column Output]"
-              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              refId="Package\EDW_DataFlow.Paths[Derived Column Output]"
+              endId="Package\EDW_DataFlow\LOAD_DART_FINANCIAL.Inputs[OLE DB Destination Input]"
               name="Derived Column Output"
-              startId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
+              startId="Package\EDW_DataFlow\Load_Audit_Columns.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+              refId="Package\EDW_DataFlow.Paths[OLE DB Source Output]"
+              endId="Package\EDW_DataFlow\Load_Audit_Columns.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
-              startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+              startId="Package\EDW_DataFlow\TMS_FINANCIAL.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Execute SQL Task"
+      DTS:refId="Package\Truncate_Target"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{86D49C33-2DE8-4BE2-9D01-035CFC959F8E}"
+      DTS:DTSID="{D497E12E-9DDD-4726-814B-EF5F5DB36651}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Execute SQL Task"
+      DTS:ObjectName="Truncate_Target"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{13894CE5-572E-4B8C-97DE-469E3D514EBA}"
-          SQLTask:SqlStatementSource="truncate table ##load_DART_contact" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{BDF0703E-5D22-42B7-9EA5-625575D4BF9B}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE load_DART_financial" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -653,11 +958,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{8C10BE22-8B99-484F-B2A6-FC36C006DD1D}"
-      DTS:From="Package\Execute SQL Task"
+      DTS:DTSID="{B54F3834-266C-4D23-9435-26DE61441487}"
+      DTS:From="Package\Truncate_Target"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Data Flow Task" />
+      DTS:To="Package\EDW_DataFlow" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -673,15 +978,15 @@
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="151,42"
-          Id="Package\Data Flow Task"
+          Id="Package\EDW_DataFlow"
           TopLeft="247,196" />
         <NodeLayout
-          Size="163,42"
-          Id="Package\Execute SQL Task"
+          Size="157,42"
+          Id="Package\Truncate_Target"
           TopLeft="244,91" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="324,133">
+          TopLeft="322.5,133">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -705,71 +1010,87 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Data Flow Task">
+    design-time-name="Package\EDW_DataFlow">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="150,42"
-          Id="Package\Data Flow Task\OLE DB Source"
+          Size="157,42"
+          Id="Package\EDW_DataFlow\TMS_FINANCIAL"
           TopLeft="215,49" />
         <NodeLayout
-          Size="154,42"
-          Id="Package\Data Flow Task\Derived Column"
-          TopLeft="216,138" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="210,228" />
+          Size="178,42"
+          Id="Package\EDW_DataFlow\Load_Audit_Columns"
+          TopLeft="216,139" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="291.5,91">
+          Id="Package\EDW_DataFlow.Paths[OLE DB Source Output]"
+          TopLeft="293.5,91">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,47"
+              EndConnector="11.5,48"
               Start="0,0"
-              End="0,39.5">
+              End="11.5,40.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.5" />
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="4,24" />
+                  <mssgle:LineSegment
+                    End="7.5,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.5,24"
+                    Point2="11.5,24"
+                    Point3="11.5,28" />
+                  <mssgle:LineSegment
+                    End="11.5,40.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-26.3787109375,29,64.257421875,11.2431640625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="196,42"
+          Id="Package\EDW_DataFlow\LOAD_DART_FINANCIAL"
+          TopLeft="206,232" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="294.25,180">
+          Id="Package\EDW_DataFlow.Paths[Derived Column Output]"
+          TopLeft="304.5,181">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,48"
+              EndConnector="0,51"
               Start="0,0"
-              End="0,40.5">
+              End="0,43.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.5" />
+                    End="0,43.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-32.1287109375,16.12841796875,64.257421875,11.2431640625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source">
+    design-time-name="Package\EDW_DataFlow\TMS_FINANCIAL">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -782,7 +1103,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\EDW_DataFlow\LOAD_DART_FINANCIAL">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
